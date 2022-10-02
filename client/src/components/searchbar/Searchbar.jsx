@@ -17,10 +17,10 @@ const Input = styled.input`
   flex: 3;
   border: none;
   padding: 0px 10px;
-  background-color: #e3e3e3;
+  background-color: #3e3e3e;
   color: white;
   margin-right: 5px;
-  border-radius: 5px;
+  border-radius: 5px 10px;
 `;
 
 const TimeInput = styled.input`
@@ -28,10 +28,10 @@ const TimeInput = styled.input`
   flex: 1;
   border: none;
   padding: 0px 10px;
-  background-color: #e3e3e3;
+  background-color: #3e3e3e;
   color: white;
   margin-right: 5px;
-  border-radius: 5px;
+  border-radius: 5px 10px;
 `;
 
 const Button = styled.button`
@@ -41,7 +41,7 @@ const Button = styled.button`
   border: none;
   background-color: #3e3e3e;
   color: white;
-  border-radius: 5px;
+  border-radius: 5px 10px;
 `;
 
 const Searchbar = () => {
@@ -56,11 +56,17 @@ const Searchbar = () => {
     setTime(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    addTodo({ task, time }, dispatch);
+    setTask("");
+    setTime("");
+  };
+
   return (
     <Container>
-      <Input placeholder="Task" onChange={(e) => handleChangeTask(e)} />
-      <TimeInput placeholder="TIme" onChange={(e) => handleChangeTime(e)} />
-      <Button onClick={(e) => addTodo({ task, time }, dispatch)}>Submit</Button>
+      <Input placeholder="Task" onChange={(e) => handleChangeTask(e)} value={task} />
+      <TimeInput placeholder="Time" onChange={(e) => handleChangeTime(e)} value={time} />
+      <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
     </Container>
   );
 };

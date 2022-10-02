@@ -13,7 +13,7 @@ const Container = styled.div`
   width: 80%;
   align-items: center;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 5px 10px;
 `;
 
 const RightSide = styled.div`
@@ -60,7 +60,7 @@ const AnotherBut = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${(props) =>
-    props.isDone == true ? "black" : "transparent"};
+    props.isDone == true ? "#e3e3e3" : "transparent"};
   border-radius: 5px;
 `;
 
